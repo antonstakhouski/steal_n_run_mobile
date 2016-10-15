@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Steal and Run</string>
+    <string name="new_game_btn">New game</string>
+    <string name="select_level_btn">Select level</string>
+    <string name="exit_btn">Exit</string>
+    <string name="pause_btn">II</string>
+</resources>
