@@ -21,48 +21,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_73fb576a1b34adf44cff889984712848e9d780ba/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_23fc25dd1107b29887fbdc78f2e0eee8054eebfc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_b131e69a3d51357112ff279d3de183aecb0fda4f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_a687386e0ebf0efcf6a979d6da95867f54b4a4cc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_e63464b1854587eb446a40d113dbc6bdcf71b8d0/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -75,29 +39,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_66b1724f4d76185cbb3cbf8a4ec62df1ccddcc4d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0b167c17fca99399c7d4ac8b8cd805867d2de33f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="c4610acce104bbcda10817ff2f516ed9873cf6c7">
+        sha1="a9dc5afdc021a3accab4938ef2044d30160c01e8">
         <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_1ed9657ce0f6b1b342cce47d842e3d7adae835a4/classes.dex" />
     </item>
     <item
@@ -129,6 +75,60 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_73fb576a1b34adf44cff889984712848e9d780ba/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_b131e69a3d51357112ff279d3de183aecb0fda4f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_a687386e0ebf0efcf6a979d6da95867f54b4a4cc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_e63464b1854587eb446a40d113dbc6bdcf71b8d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_66b1724f4d76185cbb3cbf8a4ec62df1ccddcc4d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0b167c17fca99399c7d4ac8b8cd805867d2de33f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -142,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="532dde954bf1fb63047ec079a178b6360f17cc86">
+        sha1="427f62b98098eff278e37bc575814af286a9d654">
         <dex dex="/home/archer/AndroidStudioProjects/StealandRun/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5fbd788f1aea9003c71b04cde2eb836e54116504/classes.dex" />
     </item>
     <item

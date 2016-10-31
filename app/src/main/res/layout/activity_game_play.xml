@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.stakhouski.anton.stealandrun.GamePlayActivity">
 
-    <Button
+   <!-- <Button
         android:id="@+id/pause_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pause_btn"
         style="?android:attr/buttonStyleSmall"
-        android:onClick="Pause"/>
+        android:onClick="Pause"/> -->
 
 </RelativeLayout>
