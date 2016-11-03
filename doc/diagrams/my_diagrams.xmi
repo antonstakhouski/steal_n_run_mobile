@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" xmlns:UML="http://schema.omg.org/spec/UML/1.3" timestamp="2016-11-03T04:29:01">
+<XMI verified="false" xmi.version="1.2" xmlns:UML="http://schema.omg.org/spec/UML/1.3" timestamp="2016-11-03T05:07:43">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -784,10 +784,11 @@
       <UML:Dependency supplier="n72ZEOvzIDk6" xmi.id="IMmXijeNrHib" namespace="Component View" client="LIOitlt7kbIx" name="" visibility="public" isSpecification="false"/>
       <UML:Dependency supplier="wwB221klaaT6" xmi.id="Yt4qHR7wRw3R" namespace="Component View" client="LIOitlt7kbIx" name="" visibility="public" isSpecification="false"/>
       <UML:Dependency supplier="EH47OBKwPZtc" xmi.id="90jqY0AniCnK" namespace="Component View" client="n72ZEOvzIDk6" name="" visibility="public" isSpecification="false"/>
+      <UML:Artifact isLeaf="false" drawas="0" isRoot="false" isAbstract="false" xmi.id="BnwJq1LMBcuK" namespace="Component View" name="stealandrun.apk" visibility="public" isSpecification="false"/>
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams>
-       <diagram name="Диаграмма компонентов" showgrid="0" showops="1" snapx="25" snapy="25" canvaswidth="3252.31" griddotcolor="#d3d3d3" showpubliconly="0" showpackage="1" textcolor="#000000" showstereotype="1" showopsig="1" font="Noto Sans,10,-1,0,50,0,0,0,0,0" fillcolor="#ffff00" linecolor="#ff0000" showatts="1" snapcsgrid="0" linewidth="0" documentation="" localid="-1" snapgrid="0" isopen="1" usefillcolor="1" xmi.id="EgXqPq126OOp" showattribassocs="1" backgroundcolor="#ffffff" showscope="1" showattsig="1" zoom="61,44724260266823" type="7" canvasheight="1594.04">
+       <diagram name="Диаграмма компонентов" showgrid="0" showops="1" snapx="25" snapy="25" canvaswidth="3252.31" griddotcolor="#d3d3d3" showpubliconly="0" showpackage="1" textcolor="#000000" showstereotype="1" showopsig="1" font="Noto Sans,10,-1,0,50,0,0,0,0,0" fillcolor="#ffff00" linecolor="#ff0000" showatts="1" snapcsgrid="0" linewidth="0" documentation="" localid="-1" snapgrid="0" isopen="1" usefillcolor="1" xmi.id="EgXqPq126OOp" showattribassocs="1" backgroundcolor="#ffffff" showscope="1" showattsig="1" zoom="107" type="7" canvasheight="1594.04">
         <widgets>
          <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="ROtihasdR6Cz" width="862.376" usefillcolor="1" height="314.338" localid="zcF6nn3D95XQ" x="-1632.31" usesdiagramusefillcolor="0" y="-607.9"/>
          <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="n72ZEOvzIDk6" width="140" usefillcolor="1" height="66" localid="SqGDKtJfn8bV" x="-1337.42" usesdiagramusefillcolor="0" y="-388.775"/>
@@ -892,7 +893,20 @@
      </XMI.extension>
     </UML:Model>
     <UML:Model isLeaf="false" isRoot="false" isAbstract="false" xmi.id="Deployment View" namespace="m1" name="Deployment View" visibility="public" isSpecification="false">
-     <UML:Namespace.ownedElement/>
+     <UML:Namespace.ownedElement>
+      <UML:Node isLeaf="false" isRoot="false" isAbstract="false" xmi.id="XxOaHUX860ij" namespace="Deployment View" name="AndroidDevice" visibility="public" isSpecification="false"/>
+     </UML:Namespace.ownedElement>
+     <XMI.extension xmi.extender="umbrello">
+      <diagrams>
+       <diagram name="Диаграмма развёртывания" showgrid="0" showops="1" snapx="25" snapy="25" canvaswidth="1109" griddotcolor="#d3d3d3" showpubliconly="0" showpackage="1" textcolor="#000000" showstereotype="1" showopsig="1" font="Noto Sans,10,-1,0,50,0,0,0,0,0" fillcolor="#ffff00" linecolor="#ff0000" showatts="1" snapcsgrid="0" linewidth="0" documentation="" localid="-1" snapgrid="0" isopen="1" usefillcolor="1" xmi.id="fwY5rN5KOBUd" showattribassocs="1" backgroundcolor="#ffffff" showscope="1" showattsig="1" zoom="100" type="8" canvasheight="379">
+        <widgets>
+         <nodewidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="XxOaHUX860ij" width="178" usefillcolor="1" height="66" localid="GLNmnuMcqIAa" x="-747" usesdiagramusefillcolor="0" y="-261"/>
+        </widgets>
+        <messages/>
+        <associations/>
+       </diagram>
+      </diagrams>
+     </XMI.extension>
     </UML:Model>
     <UML:Model isLeaf="false" isRoot="false" isAbstract="false" xmi.id="Entity Relationship Model" namespace="m1" name="Entity Relationship Model" visibility="public" isSpecification="false">
      <UML:Namespace.ownedElement/>
@@ -901,7 +915,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings uniqueid="AKVhZjizRbOW" viewid="EgXqPq126OOp" documentation=""/>
+  <docsettings uniqueid="HzEG810w5hlS" viewid="fwY5rN5KOBUd" documentation=""/>
   <listview>
    <listitem type="800" id="Views" open="1">
     <listitem type="821" id="Component View" open="1">
@@ -921,6 +935,7 @@
       <listitem type="822" id="ZZs3z9j7kLRQ" open="1"/>
       <listitem type="822" id="EH47OBKwPZtc" open="1"/>
      </listitem>
+     <listitem type="824" id="BnwJq1LMBcuK" open="1"/>
      <listitem type="822" id="hzhteRs75tVQ" open="1">
       <listitem type="822" id="8oXJI3EnRN4f" open="0"/>
       <listitem type="822" id="Uh4lDLavJgYe" open="1"/>
@@ -1157,7 +1172,10 @@
     </listitem>
     <listitem type="836" id="Entity Relationship Model" open="1"/>
     <listitem type="802" id="Use Case View" open="1"/>
-    <listitem type="827" id="Deployment View" open="1"/>
+    <listitem type="827" id="Deployment View" open="1">
+     <listitem type="825" id="fwY5rN5KOBUd" label="Диаграмма развёртывания" open="0"/>
+     <listitem type="828" id="XxOaHUX860ij" open="1"/>
+    </listitem>
    </listitem>
   </listview>
   <codegeneration>
