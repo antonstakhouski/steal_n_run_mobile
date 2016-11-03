@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" xmlns:UML="http://schema.omg.org/spec/UML/1.3" timestamp="2016-11-03T05:07:43">
+<XMI verified="false" xmi.version="1.2" xmlns:UML="http://schema.omg.org/spec/UML/1.3" timestamp="2016-11-03T15:25:02">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -788,7 +788,7 @@
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams>
-       <diagram name="Диаграмма компонентов" showgrid="0" showops="1" snapx="25" snapy="25" canvaswidth="3252.31" griddotcolor="#d3d3d3" showpubliconly="0" showpackage="1" textcolor="#000000" showstereotype="1" showopsig="1" font="Noto Sans,10,-1,0,50,0,0,0,0,0" fillcolor="#ffff00" linecolor="#ff0000" showatts="1" snapcsgrid="0" linewidth="0" documentation="" localid="-1" snapgrid="0" isopen="1" usefillcolor="1" xmi.id="EgXqPq126OOp" showattribassocs="1" backgroundcolor="#ffffff" showscope="1" showattsig="1" zoom="107" type="7" canvasheight="1594.04">
+       <diagram name="Диаграмма компонентов" showgrid="0" showops="1" snapx="25" snapy="25" canvaswidth="3252.31" griddotcolor="#d3d3d3" showpubliconly="0" showpackage="1" textcolor="#000000" showstereotype="1" showopsig="1" font="Noto Sans,10,-1,0,50,0,0,0,0,0" fillcolor="#ffff00" linecolor="#ff0000" showatts="1" snapcsgrid="0" linewidth="0" documentation="" localid="-1" snapgrid="0" isopen="1" usefillcolor="1" xmi.id="EgXqPq126OOp" showattribassocs="1" backgroundcolor="#ffffff" showscope="1" showattsig="1" zoom="46,25905276253654" type="7" canvasheight="1594.04">
         <widgets>
          <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="ROtihasdR6Cz" width="862.376" usefillcolor="1" height="314.338" localid="zcF6nn3D95XQ" x="-1632.31" usesdiagramusefillcolor="0" y="-607.9"/>
          <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="n72ZEOvzIDk6" width="140" usefillcolor="1" height="66" localid="SqGDKtJfn8bV" x="-1337.42" usesdiagramusefillcolor="0" y="-388.775"/>
@@ -805,7 +805,6 @@
          <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="mnnBNfLtBWLe" width="166" usefillcolor="1" height="66" localid="Zn9OPuGvObK7" x="-1330.91" usesdiagramusefillcolor="0" y="-955.078"/>
          <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="HkUOVVpLPAJt" width="152" usefillcolor="1" height="66" localid="EGRCV4z23Kur" x="-1594.21" usesdiagramusefillcolor="0" y="-846.034"/>
          <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="xDl9pxuQMCuD" width="144" usefillcolor="1" height="66" localid="DZ0QHeu8tTWb" x="-933.97" usesdiagramusefillcolor="0" y="-413.834"/>
-         <componentwidget fillcolor="#ffff00" linecolor="#ff0000" isinstance="0" showstereotype="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" textcolor="#000000" xmi.id="EH47OBKwPZtc" width="159" usefillcolor="1" height="66" localid="yXsj2trcPJRa" x="-1612.5" usesdiagramusefillcolor="0" y="-419.219"/>
         </widgets>
         <messages/>
         <associations>
@@ -881,12 +880,6 @@
            <endpoint endx="-1496.03" endy="-487.344"/>
           </linepath>
          </assocwidget>
-         <assocwidget fillcolor="#ffff00" linecolor="#ff0000" indexb="1" linewidth="0" usesdiagramfillcolor="0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" type="502" seqnum="" textcolor="none" xmi.id="90jqY0AniCnK" usefillcolor="1" totalcountb="2" totalcounta="2" indexa="1" usesdiagramusefillcolor="97" widgetaid="n72ZEOvzIDk6" widgetbid="EH47OBKwPZtc">
-          <linepath layout="Polyline">
-           <startpoint startx="-1337.42" starty="-372.815"/>
-           <endpoint endx="-1453.5" endy="-372.815"/>
-          </linepath>
-         </assocwidget>
         </associations>
        </diagram>
       </diagrams>
@@ -915,7 +908,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings uniqueid="HzEG810w5hlS" viewid="fwY5rN5KOBUd" documentation=""/>
+  <docsettings uniqueid="HzEG810w5hlS" viewid="EgXqPq126OOp" documentation=""/>
   <listview>
    <listitem type="800" id="Views" open="1">
     <listitem type="821" id="Component View" open="1">
@@ -1179,7 +1172,7 @@
    </listitem>
   </listview>
   <codegeneration>
-   <codegenerator language="C++"/>
+   <codegenerator language="Java"/>
   </codegeneration>
  </XMI.extensions>
 </XMI>
