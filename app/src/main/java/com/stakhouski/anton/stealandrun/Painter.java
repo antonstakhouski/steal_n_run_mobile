@@ -86,6 +86,7 @@ public class Painter {
      * this shape.
      */
     public void draw(float[] mvpMatrix, float[] squareCoords_, float[] color_) {
+
         squareCoords = squareCoords_;
         color = color_;
 
