@@ -1,3 +1,10 @@
-!*.java
+!app/*
 !*.xml
+!*.gradle
+!*.properties
+!*.pro
+!*.png
+!*.pdf
+!*.gitignore
+!*.LICENCE
 *
