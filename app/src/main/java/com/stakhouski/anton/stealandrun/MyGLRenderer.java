@@ -30,12 +30,18 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private final float[] mViewMatrix = new float[16];
     private final float[] mRotationMatrix = new float[16];
 
-    Field field;
+    private Field field;
+    private Player player;
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         // Set the background frame color
         GLES31.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         field = new Field();
+        player = new Player();
+    }
+
+    public void setPlayerKeyEvent(Player.Action action){
+        player.keyEvent(action);
     }
 
     public void onDrawFrame(GL10 unused) {
@@ -51,8 +57,9 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
         // Draw square
-        
+
         field.draw(mMVPMatrix);
+        player.tick(field);
         //mSquare.draw(mMVPMatrix);
 
     }

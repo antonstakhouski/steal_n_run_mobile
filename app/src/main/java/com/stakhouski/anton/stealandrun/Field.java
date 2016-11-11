@@ -9,12 +9,11 @@ import java.security.InvalidParameterException;
 public class Field {
     Painter p = new Painter();
 
-    final int WIDTH = 26, HEIGHT = 16;
-    final int BLOCK_WIDTH = 40, BLOCK_HEIGHT = 40;
+    static final int WIDTH = 26, HEIGHT = 16;
     int step = 16;
     enum Type { EMPTY, BRICK, CONCRETE, LADDER, GOLD, PLAYER ,ENEMY, POLE, BRICK2, LADDER2 }
-    int playerX;
-    int playerY;
+    static int playerX;
+    static int playerY;
     int goldRemain;
     static int level;
     String levelMap =
@@ -98,7 +97,6 @@ public class Field {
                         m_[y][x] = Type.ENEMY;
                         continue;
                     default:
-                        continue;
                 }
             }
         }
