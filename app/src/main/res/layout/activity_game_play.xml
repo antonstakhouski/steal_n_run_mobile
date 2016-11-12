@@ -24,7 +24,7 @@
        android:alpha="0.25"/>
 
    <Button
-       android:id="@+id/RightBtn"
+       android:id="@+id/rightBtn"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="@string/RightBtn"
@@ -33,7 +33,7 @@
        android:alpha="0.25"/>
 
    <Button
-       android:id="@+id/UpBtn"
+       android:id="@+id/upBtn"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="@string/UpBtn"
@@ -42,7 +42,7 @@
        android:alpha="0.25"/>
 
    <Button
-       android:id="@+id/DownBtn"
+       android:id="@+id/downBtn"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="@string/DownBtn"

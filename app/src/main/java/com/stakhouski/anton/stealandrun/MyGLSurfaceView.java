@@ -1,5 +1,6 @@
 package com.stakhouski.anton.stealandrun;
 
+import android.app.Activity;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.view.MotionEvent;
@@ -13,7 +14,7 @@ import android.widget.FrameLayout;
 
 public class MyGLSurfaceView extends GLSurfaceView {
 
-    private final MyGLRenderer mRenderer;
+    //private final MyGLRenderer mRenderer;
 
     public MyGLSurfaceView(Context context){
         super(context);
@@ -21,28 +22,20 @@ public class MyGLSurfaceView extends GLSurfaceView {
         // Create an OpenGL ES 3.0 context
         setEGLContextClientVersion(3);
 
-        mRenderer = new MyGLRenderer();
+        //mRenderer = new MyGLRenderer();
 
         // Set the Renderer for drawing on the GLSurfaceView
-        setRenderer(mRenderer);
+        //setRenderer(mRenderer);
         // Render the view only when there is a change in the drawing data
-        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
-
-        Button leftBtn = (Button)findViewById(R.id.leftBtn);
-        leftBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                System.exit(0);
-            }
-        });
+        //setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
     }
 
     private float mPreviousX;
     private float mPreviousY;
 
-    public void setPlayerKeyEvent(Player.Action action){
+/*    public void setPlayerKeyEvent(Player.Action action){
         mRenderer.setPlayerKeyEvent(action);
-    }
+    }*/
 
 /*
     public boolean onTouchEvent(MotionEvent e) {
