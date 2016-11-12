@@ -4,7 +4,6 @@ import android.opengl.GLES31;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.util.Log;
-
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -30,18 +29,19 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private final float[] mViewMatrix = new float[16];
     private final float[] mRotationMatrix = new float[16];
 
-    private Field field;
-    private Player player;
+    //private Field field;
+    //private Player player;
+    private Game game;
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         // Set the background frame color
         GLES31.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        field = new Field();
-        player = new Player();
+
+        game = new Game();
     }
 
     public void setPlayerKeyEvent(Player.Action action){
-        player.keyEvent(action);
+         game.keyEvent(action);
     }
 
     public void onDrawFrame(GL10 unused) {
@@ -58,8 +58,10 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         // Draw square
 
-        field.draw(mMVPMatrix);
-        player.tick(field);
+        game.tick();
+        game.tick();
+        game.draw(mMVPMatrix);
+        //player.tick(field);
         //mSquare.draw(mMVPMatrix);
 
     }

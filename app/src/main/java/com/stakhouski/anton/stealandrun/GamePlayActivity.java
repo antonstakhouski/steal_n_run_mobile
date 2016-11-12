@@ -1,7 +1,5 @@
 package com.stakhouski.anton.stealandrun;
 
-import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.opengl.GLSurfaceView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +9,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 
 public class GamePlayActivity extends AppCompatActivity {
@@ -35,6 +32,11 @@ public class GamePlayActivity extends AppCompatActivity {
         mGLView.setRenderer(mRenderer);
 
         Button leftBtn = (Button)findViewById(R.id.leftBtn);
+        Button rightBtn = (Button)findViewById(R.id.rightBtn);
+        Button upBtn = (Button)findViewById(R.id.upBtn);
+        Button downBtn = (Button)findViewById(R.id.downBtn);
+
+
         leftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +44,6 @@ public class GamePlayActivity extends AppCompatActivity {
             }
         });
 
-        Button rightBtn = (Button)findViewById(R.id.rightBtn);
         rightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +51,6 @@ public class GamePlayActivity extends AppCompatActivity {
             }
         });
 
-        Button upBtn = (Button)findViewById(R.id.upBtn);
         upBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,13 +58,65 @@ public class GamePlayActivity extends AppCompatActivity {
             }
         });
 
-        Button downBtn = (Button)findViewById(R.id.downBtn);
         downBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mRenderer.setPlayerKeyEvent(Player.Action.DOWN);
             }
         });
+
+
+/*        leftBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mRenderer.setPlayerKeyEvent(Player.Action.LEFT);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        });
+
+        rightBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mRenderer.setPlayerKeyEvent(Player.Action.RIGHT);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        });
+
+        upBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mRenderer.setPlayerKeyEvent(Player.Action.UP);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        });
+
+        downBtn.setOnTouchListener(new View.OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event) {
+                mRenderer.setPlayerKeyEvent(Player.Action.DOWN);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        });*/
 
 
         FrameLayout frame = (FrameLayout)findViewById(R.id.activity_game_play);

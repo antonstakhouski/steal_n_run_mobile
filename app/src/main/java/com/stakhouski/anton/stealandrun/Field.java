@@ -7,16 +7,15 @@ import java.security.InvalidParameterException;
  */
 
 public class Field {
-    Painter p = new Painter();
 
     static final int WIDTH = 26, HEIGHT = 16;
-    int step = 16;
+    private int step = 16;
     enum Type { EMPTY, BRICK, CONCRETE, LADDER, GOLD, PLAYER ,ENEMY, POLE, BRICK2, LADDER2 }
     static int playerX;
     static int playerY;
-    int goldRemain;
-    static int level;
-    String levelMap =
+    int goldRemain = 0;
+    static int level = 1;
+    private String levelMap =
             "EEEEEEEEEEEEEEEEE1EEEEEEEE" +
             "EEEEGEEEEEEEEEEEE1EEEEEEEE" +
             "BBBBBBLBBBBBBBEEE1EEEEEEEE" +
@@ -34,7 +33,7 @@ public class Field {
             "EEEELEEEEEEEEPEEGEEEEEEEEL" +
             "BBBBBBBBBBBBBBBBBBBBBBBBBB";
 
-    char[] charArrayMap = levelMap.toCharArray();
+    private char[] charArrayMap = levelMap.toCharArray();
 
     //blocks coordinates
     //for textures
@@ -47,13 +46,13 @@ public class Field {
     private int[] player = {enemy[0] + step, 0};
     Type[][] m_ = new Type[HEIGHT][WIDTH];
 
-    float[] ladder_color = {0.0f, 1.0f, 0.0f, 1.0f};
-    float[] concrete_color = {0.255f, 0.128f, 0.0f, 1.0f};
-    float[] brick_color = {1.0f, 0.0f, 0.0f, 1.0f};
-    float[] gold_color = {1.0f, 1.0f, 0.0f, 1.0f};
-    float[] pole_color = {1.0f, 1.0f, 1.0f, 1.0f};
-    float[] player_color = {0.0f, 0.0f, 1.0f, 1.0f};
-    float[] enemy_color = {0.1f, 0.3f, 0.4f, 1.0f};
+    private float[] ladderColor = {0.0f, 1.0f, 0.0f, 1.0f};
+    private float[] concreteColor = {0.255f, 0.128f, 0.0f, 1.0f};
+    private float[] brickColor = {1.0f, 0.0f, 0.0f, 1.0f};
+    private float[] goldColor = {1.0f, 1.0f, 0.0f, 1.0f};
+    private float[] poleColor = {1.0f, 1.0f, 1.0f, 1.0f};
+    private float[] playerColor = {0.0f, 0.0f, 1.0f, 1.0f};
+    private float[] enemyColor = {0.1f, 0.3f, 0.4f, 1.0f};
 
     float[] squareCoords;
     float[] mvpMatrix;
@@ -78,6 +77,7 @@ public class Field {
                         continue;
                     case 'G':
                         m_[y][x] = Type.GOLD;
+                        goldRemain++;
                         continue;
                     case '1':
                         m_[y][x] = Type.LADDER2;
@@ -106,7 +106,7 @@ public class Field {
 
     Type getBlock(int x, int y) {return m_[y][x];}
 
-    void draw(float[] mvpMatrix) {
+    void draw(float[] mvpMatrix, Painter painter) {
         for (int y = 0; y < HEIGHT; ++y) {
             for (int x = 0; x < WIDTH; ++x) {
                 switch (m_[y][x]) {
@@ -117,25 +117,25 @@ public class Field {
                     case BRICK2:
                         break;
                     case LADDER:
-                        drawBlock(mvpMatrix, x, y, ladder_color);
+                        drawBlock(mvpMatrix, x, y, ladderColor, painter);
                         break;
                     case CONCRETE:
-                        drawBlock(mvpMatrix, x, y, concrete_color);
+                        drawBlock(mvpMatrix, x, y, concreteColor, painter);
                         break;
                     case BRICK:
-                        drawBlock(mvpMatrix, x, y, brick_color);
+                        drawBlock(mvpMatrix, x, y, brickColor, painter);
                         break;
                     case GOLD:
-                        drawBlock(mvpMatrix, x, y, gold_color);
+                        drawBlock(mvpMatrix, x, y, goldColor, painter);
                         break;
                     case POLE:
-                        drawBlock(mvpMatrix, x, y, pole_color);
+                        drawBlock(mvpMatrix, x, y, poleColor, painter);
                         break;
                     case PLAYER:
-                        drawBlock(mvpMatrix, x, y, player_color);
+                        drawBlock(mvpMatrix, x, y, playerColor, painter);
                         break;
                     case ENEMY:
-                        drawBlock(mvpMatrix, x, y, enemy_color);
+                        drawBlock(mvpMatrix, x, y, enemyColor, painter);
                         break;
                     default:
                         throw new InvalidParameterException();
@@ -144,7 +144,7 @@ public class Field {
         }
     }
 
-    void drawBlock(float[] mvpMatrix, int x, int y, float[] color)
+    private void drawBlock(float[] mvpMatrix, int x, int y, float[] color, Painter painter)
     {
         int width = WIDTH + 2;
         float xf = ((x / (float)width) * 2 - 1);
@@ -152,24 +152,12 @@ public class Field {
         float offsetY = 12 / (float)width;
         float offsetX = 2 / (float)width;
 
-
         float[] squareCoords = {
                 xf + offsetX,           yf + 2/(float)width + offsetY,   0.0f,
                 xf + offsetX,           yf + offsetY,             0.0f,
                 xf + 2/(float)width + offsetX, yf + offsetY,             0.0f,
                 xf + 2/(float)width + offsetX, yf + 2/(float)width + offsetY,   0.0f};
-        /*float[] squareCoords = {
-                xf,           yf + 1/WIDTH,   0.0f,
-                xf,           yf,             0.0f,
-                xf + 1/WIDTH, yf,             0.0f,
-                xf + 1/WIDTH, yf + 1/WIDTH,   0.0f};/*
-
-         /* float squareCoords[] = {
-                -1.0f,  1.0f, 0.0f,   // top left
-                -1.0f, -1.0f, 0.0f,   // bottom left
-                1.0f, -1.0f, 0.0f,   // bottom right
-                1.0f,  1.0f, 0.0f }; // top right */
-        p.draw(mvpMatrix, squareCoords, color);
+        painter.draw(mvpMatrix, squareCoords, color);
     }
 
 }
