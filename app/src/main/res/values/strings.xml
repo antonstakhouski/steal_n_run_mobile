@@ -4,4 +4,9 @@
     <string name="select_level_btn">Select level</string>
     <string name="exit_btn">Exit</string>
     <string name="pause_btn">II</string>
+
+    <string name="leftBtn">Left</string>
+    <string name="RightBtn">Right</string>
+    <string name="UpBtn">Up</string>
+    <string name="DownBtn">Down</string>
 </resources>

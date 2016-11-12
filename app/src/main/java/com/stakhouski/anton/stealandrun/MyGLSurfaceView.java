@@ -3,6 +3,9 @@ package com.stakhouski.anton.stealandrun;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 /**
  * Created by archer on 15.10.16.
@@ -24,12 +27,24 @@ public class MyGLSurfaceView extends GLSurfaceView {
         setRenderer(mRenderer);
         // Render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+
+        Button leftBtn = (Button)findViewById(R.id.leftBtn);
+        leftBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                System.exit(0);
+            }
+        });
     }
 
     private float mPreviousX;
     private float mPreviousY;
 
-    @Override
+    public void setPlayerKeyEvent(Player.Action action){
+        mRenderer.setPlayerKeyEvent(action);
+    }
+
+/*
     public boolean onTouchEvent(MotionEvent e) {
         // MotionEvent reports input details from the touch screen
         // and other input controls. In this case, you are only
@@ -39,7 +54,7 @@ public class MyGLSurfaceView extends GLSurfaceView {
         float y = e.getY();
 
         switch (e.getAction()) {
-            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.Pre:
 
                 float dx = x - mPreviousX;
                 float dy = y - mPreviousY;
@@ -77,5 +92,5 @@ public class MyGLSurfaceView extends GLSurfaceView {
         mPreviousX = x;
         mPreviousY = y;
         return true;
-    }
+    }*/
 }

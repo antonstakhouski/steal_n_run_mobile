@@ -30,21 +30,17 @@ public class GamePlayActivity extends AppCompatActivity {
         // as the ContentView for this Activity.
         mGLView = new MyGLSurfaceView(this);
 
-        //mGLView.setZOrderMediaOverlay(true);
         FrameLayout frame = (FrameLayout)findViewById(R.id.activity_game_play);
 
-        //frame.addView(mGLView, 0);
 
-        setContentView(mGLView);
-
+        //setContentView(mGLView);
         addContentView(frame, new
                 ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
-
-
     }
 
     public void Pause(View view){
         System.exit(0);
     }
+
 }

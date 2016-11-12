@@ -15,12 +15,39 @@
         android:onClick="Pause"/> -->
 
    <Button
-       android:text="Button"
+       android:id="@+id/leftBtn"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_alignParentTop="true"
-       android:layout_alignParentStart="true"
-       android:layout_marginStart="56dp"
-       android:layout_marginTop="96dp"
-       android:id="@+id/button" />
+       android:text="@string/leftBtn"
+       android:layout_marginStart="20dp"
+       android:layout_marginTop="250dp"
+       android:alpha="0.25"/>
+
+   <Button
+       android:id="@+id/RightBtn"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/RightBtn"
+       android:layout_marginStart="120dp"
+       android:layout_marginTop="250dp"
+       android:alpha="0.25"/>
+
+   <Button
+       android:id="@+id/UpBtn"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/UpBtn"
+       android:layout_marginStart="70dp"
+       android:layout_marginTop="200dp"
+       android:alpha="0.25"/>
+
+   <Button
+       android:id="@+id/DownBtn"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/DownBtn"
+       android:layout_marginStart="70dp"
+       android:layout_marginTop="300dp"
+       android:alpha="0.25"/>
+
 </FrameLayout>
