@@ -1,15 +1,17 @@
 package com.stakhouski.anton.stealandrun;
 
+import android.content.pm.ActivityInfo;
 import android.opengl.GLSurfaceView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import com.zerokol.views.JoystickView;
+import com.zerokol.views.JoystickView.OnJoystickMoveListener;
+
 
 public class GamePlayActivity extends AppCompatActivity {
 
@@ -22,7 +24,7 @@ public class GamePlayActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_game_play);
 
         // Create a GLSurfaceView instance and set it
@@ -30,93 +32,49 @@ public class GamePlayActivity extends AppCompatActivity {
         mGLView = new MyGLSurfaceView(this);
         mRenderer = new MyGLRenderer();
         mGLView.setRenderer(mRenderer);
+        JoystickView joystick;
 
-        Button leftBtn = (Button)findViewById(R.id.leftBtn);
-        Button rightBtn = (Button)findViewById(R.id.rightBtn);
-        Button upBtn = (Button)findViewById(R.id.upBtn);
-        Button downBtn = (Button)findViewById(R.id.downBtn);
+        joystick = (JoystickView)findViewById(R.id.joystickView);
 
-
-        leftBtn.setOnClickListener(new View.OnClickListener() {
+        joystick.setOnJoystickMoveListener(new OnJoystickMoveListener() {
             @Override
-            public void onClick(View v) {
-                mRenderer.setPlayerKeyEvent(Player.Action.LEFT);
-            }
-        });
-
-        rightBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRenderer.setPlayerKeyEvent(Player.Action.RIGHT);
-            }
-        });
-
-        upBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRenderer.setPlayerKeyEvent(Player.Action.UP);
-            }
-        });
-
-        downBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRenderer.setPlayerKeyEvent(Player.Action.DOWN);
-            }
-        });
-
-
-/*        leftBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                mRenderer.setPlayerKeyEvent(Player.Action.LEFT);
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            public void onValueChanged(int angle, int power, int direction) {
+                switch (direction){
+                    case JoystickView.LEFT:
+                        mRenderer.setPlayerKeyEvent(Player.Action.LEFT);
+                        break;
+                    case JoystickView.RIGHT:
+                        mRenderer.setPlayerKeyEvent(Player.Action.RIGHT);
+                        break;
+                    case JoystickView.FRONT:
+                        mRenderer.setPlayerKeyEvent(Player.Action.UP);
+                        break;
+                    case JoystickView.BOTTOM:
+                        mRenderer.setPlayerKeyEvent(Player.Action.DOWN);
+                        break;
+                    case JoystickView.FRONT_RIGHT:
+                        mRenderer.setPlayerKeyEvent(Player.Action.RIGHT);
+                        mGLView.requestRender();
+                        mRenderer.setPlayerKeyEvent(Player.Action.UP);
+                        break;
+                    case JoystickView.LEFT_FRONT:
+                        mRenderer.setPlayerKeyEvent(Player.Action.LEFT);
+                        mGLView.requestRender();
+                        mRenderer.setPlayerKeyEvent(Player.Action.UP);
+                        break;
+                    case JoystickView.BOTTOM_LEFT:
+                        mRenderer.setPlayerKeyEvent(Player.Action.LEFT);
+                        mGLView.requestRender();
+                        mRenderer.setPlayerKeyEvent(Player.Action.DOWN);
+                        break;
+                    case JoystickView.RIGHT_BOTTOM:
+                        mRenderer.setPlayerKeyEvent(Player.Action.RIGHT);
+                        mGLView.requestRender();
+                        mRenderer.setPlayerKeyEvent(Player.Action.DOWN);
+                        break;
                 }
-                return false;
             }
-        });
-
-        rightBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                mRenderer.setPlayerKeyEvent(Player.Action.RIGHT);
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        });
-
-        upBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                mRenderer.setPlayerKeyEvent(Player.Action.UP);
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        });
-
-        downBtn.setOnTouchListener(new View.OnTouchListener() {
-
-            public boolean onTouch(View v, MotionEvent event) {
-                mRenderer.setPlayerKeyEvent(Player.Action.DOWN);
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        });*/
+        }, JoystickView.DEFAULT_LOOP_INTERVAL);
 
 
         FrameLayout frame = (FrameLayout)findViewById(R.id.activity_game_play);

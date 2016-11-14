@@ -27,10 +27,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private final float[] mMVPMatrix = new float[16];
     private final float[] mProjectionMatrix = new float[16];
     private final float[] mViewMatrix = new float[16];
-    private final float[] mRotationMatrix = new float[16];
 
-    //private Field field;
-    //private Player player;
     private Game game;
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
@@ -56,13 +53,9 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
-        // Draw square
-
-        game.tick();
+        // Update screen
         game.tick();
         game.draw(mMVPMatrix);
-        //player.tick(field);
-        //mSquare.draw(mMVPMatrix);
 
     }
 

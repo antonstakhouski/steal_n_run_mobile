@@ -6,48 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.stakhouski.anton.stealandrun.GamePlayActivity">
 
-   <!-- <Button
-        android:id="@+id/pause_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pause_btn"
-        style="?android:attr/buttonStyleSmall"
-        android:onClick="Pause"/> -->
+    <!-- <Button
+         android:id="@+id/pause_btn"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/pause_btn"
+         style="?android:attr/buttonStyleSmall"
+         android:onClick="Pause"/> -->
 
-   <Button
-       android:id="@+id/leftBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/leftBtn"
-       android:layout_marginStart="20dp"
-       android:layout_marginTop="250dp"
-       android:alpha="0.25"/>
-
-   <Button
-       android:id="@+id/rightBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/RightBtn"
-       android:layout_marginStart="120dp"
-       android:layout_marginTop="250dp"
-       android:alpha="0.25"/>
-
-   <Button
-       android:id="@+id/upBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/UpBtn"
-       android:layout_marginStart="70dp"
-       android:layout_marginTop="200dp"
-       android:alpha="0.25"/>
-
-   <Button
-       android:id="@+id/downBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/DownBtn"
-       android:layout_marginStart="70dp"
-       android:layout_marginTop="300dp"
-       android:alpha="0.25"/>
+    <com.zerokol.views.JoystickView
+        android:id="@+id/joystickView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="220dp"
+        android:alpha="0.25"/>
 
 </FrameLayout>
