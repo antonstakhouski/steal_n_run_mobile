@@ -6,20 +6,30 @@
     android:layout_height="match_parent"
     tools:context="com.stakhouski.anton.stealandrun.GamePlayActivity">
 
-    <!-- <Button
-         android:id="@+id/pause_btn"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/pause_btn"
-         style="?android:attr/buttonStyleSmall"
-         android:onClick="Pause"/> -->
-
     <com.zerokol.views.JoystickView
         android:id="@+id/joystickView"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="220dp"
+        android:alpha="0.25"/>
+
+    <Button
+        android:id="@+id/digLeftBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/digLeftBtn"
+        android:layout_marginStart="400dp"
+        android:layout_marginTop="250dp"
+        android:alpha="0.25"/>
+
+    <Button
+        android:id="@+id/digRightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/digRightBtn"
+        android:layout_marginStart="500dp"
+        android:layout_marginTop="250dp"
         android:alpha="0.25"/>
 
 </FrameLayout>

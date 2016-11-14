@@ -44,19 +44,23 @@ public abstract class Creature {
 
     boolean fallTest(Field field, Field.Type creatueType)
     {
-        testBlockType = field.getBlock(x, y - 1);
+        testX = x;
+        testY = y - 1;
+        if (
+                testX >= Field.WIDTH || testX < 0 ||
+                        testY >= Field.HEIGHT || testY < 0)
+            return false;
+        testBlockType = field.getBlock(testX, testY);
         if (
                 (
-                                testBlockType == Field.Type.EMPTY ||
+                        testBlockType == Field.Type.EMPTY ||
                                 testBlockType == Field.Type.BRICK2 ||
                                 testBlockType == Field.Type.LADDER2 ||
                                 testBlockType == Field.Type.POLE ||
                                 testBlockType == Field.Type.GOLD) &&
-                        (oldBlockType != Field.Type.POLE)
+                        oldBlockType != Field.Type.POLE
                 )
         {
-            testX = x;
-            testY = y - 1;
             testMovement(field, creatueType);
             return true;
         }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import com.zerokol.views.JoystickView;
 import com.zerokol.views.JoystickView.OnJoystickMoveListener;
@@ -76,6 +77,22 @@ public class GamePlayActivity extends AppCompatActivity {
             }
         }, JoystickView.DEFAULT_LOOP_INTERVAL);
 
+        Button digLeftBtn = (Button)findViewById(R.id.digLeftBtn);
+        Button digRightBtn = (Button)findViewById(R.id.digRightBtn);
+
+        digLeftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mRenderer.setPlayerKeyEvent(Player.Action.DIGLEFT);
+            }
+        });
+
+        digRightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mRenderer.setPlayerKeyEvent(Player.Action.DIGRIGHT);
+            }
+        });
 
         FrameLayout frame = (FrameLayout)findViewById(R.id.activity_game_play);
         setContentView(mGLView);
