@@ -1,5 +1,7 @@
 package com.stakhouski.anton.stealandrun;
 
+import java.util.ArrayList;
+
 /**
  * Created by archer on 11.11.16.
  */
@@ -7,7 +9,7 @@ package com.stakhouski.anton.stealandrun;
 public class Player extends Creature {
     enum Action { LEFT, UP, RIGHT, DOWN, DIGLEFT, DIGRIGHT};
     private final int trapNum = 3;
-    private final int  trapUpdate = 500;
+    private final int  trapUpdate = 20;
     private Trap[] traps;
     private Action action_;
 
@@ -24,7 +26,6 @@ public class Player extends Creature {
         setOldX(getX());
         setOldY(getY());
         setOldBlockType(Field.Type.EMPTY);
-
     }
 
     void keyEvent(Action d)
@@ -37,6 +38,9 @@ public class Player extends Creature {
     {
         int trapIterator;
         setTestY(getY() - 1);
+        if (getTestY() < 0 || getTestY() >= Field.HEIGHT
+            || getTestX() < 0 || getTestX() >= Field.WIDTH)
+            return;
         if (field.getBlock(getTestX(), getTestY()) == Field.Type.BRICK &&
                 field.getBlock(getTestX(), getTestY() + 1) != Field.Type.LADDER) {
             //find free traps
@@ -55,7 +59,7 @@ public class Player extends Creature {
         }
     }
 
-    boolean checkTraps(Field field)
+    boolean checkTraps(Field field, ArrayList<Enemy> enemies)
     {
         //close traps
         int trapIterator;
@@ -71,7 +75,17 @@ public class Player extends Creature {
                 if (getX() == traps[trapIterator].getX() &&
                         getY() == traps[trapIterator].getY())
                     return false;
-                //if traps is empty
+                //if trap is empty
+                for (Enemy enemy : enemies) {
+                    if (traps[trapIterator].getX() == enemy.getX() &&
+                            traps[trapIterator].getY() == enemy.getY()){
+                        enemy.setUpdateFlag(false);
+                        enemy.setY(enemy.getY() + 1);
+                        enemy.setOldX(enemy.getX());
+                        enemy.setOldY(enemy.getY());
+                        enemy.setUpdateFlag(true);
+                    }
+                }
                 field.setBlock(Field.Type.BRICK, traps[trapIterator].getX(),
                         traps[trapIterator].getY());
             }
@@ -79,8 +93,11 @@ public class Player extends Creature {
         return true;
     }
 
-    boolean tick(Field field)
+    boolean tick(Field field, ArrayList<Enemy> enemies)
     {
+        if (!checkTraps(field, enemies))
+            return false;
+
         //jump to the next level
         if(field.goldRemain == 0 &&
                 getOldBlockType() == Field.Type.LADDER
@@ -99,11 +116,11 @@ public class Player extends Creature {
             switch (action_)
             {
                 case DIGLEFT:
-                    setTestX(getX() - 1);
+                    setTestX(getX() + 1);
                     setTrap(field);
                     break;
                 case DIGRIGHT:
-                    setTestX(getX() + 1);
+                    setTestX(getX() - 1);
                     setTrap(field);
                     break;
                 case LEFT:

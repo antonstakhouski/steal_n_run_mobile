@@ -1,5 +1,6 @@
 package com.stakhouski.anton.stealandrun;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,25 +11,41 @@ public class Game {
     private Painter painter;
     private Field field;
     private Player player;
-    //List<Enemy> enemies;
+    private ArrayList<Enemy> enemies;
 
-    Game(){
+    Game() {
         painter = new Painter();
         field = new Field();
         player = new Player();
+        enemies = new ArrayList<>();
+        for (int[] coords : field.getEnemiesCoords()) {
+            enemies.add(new Enemy(coords[0], coords[1]));
+
+        }
+        //enemies.add(new Enemy(x, y));
     }
 
-    void draw(float[] mvpMatrix)
-    {
+    void draw(float[] mvpMatrix) {
         field.draw(mvpMatrix, painter);
     }
 
-    void keyEvent(Player.Action action)
-    {
+    void keyEvent(Player.Action action) {
         player.keyEvent(action);
     }
 
     void tick() {
+        for (Enemy enemy : enemies) {
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if(!enemy.tick(field, player)){
+                restartGame();
+                return;
+            }
+        }
+
         //stairway to heaven
         //no. it is just stairway to the next level
         if (field.goldRemain == 0) {
@@ -42,9 +59,18 @@ public class Game {
             }
         }
 
-        if (!player.tick(field)) {
-            field = new Field();
-            player = new Player();
+        if (!player.tick(field, enemies)) {
+            restartGame();
         }
+    }
+
+    void restartGame(){
+        enemies.clear();
+        field = new Field();
+        for (int[] coords : field.getEnemiesCoords()) {
+            enemies.add(new Enemy(coords[0], coords[1]));
+        }
+        //player.deleteTraps();
+        player = new Player();
     }
 }

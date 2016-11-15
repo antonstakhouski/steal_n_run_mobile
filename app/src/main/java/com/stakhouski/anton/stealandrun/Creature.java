@@ -18,7 +18,7 @@ public abstract class Creature {
     Field.Type testBlockType;
 
     //public:
-    boolean testMovement(Field field, Field.Type creatueType)
+    boolean testMovement(Field field, Field.Type creatureType)
     {
         if (
                 testX >= Field.WIDTH || testX < 0 ||
@@ -37,12 +37,12 @@ public abstract class Creature {
         {
             x = testX;
             y = testY;
-            updateBlocks(field, creatueType);
+            updateBlocks(field, creatureType);
             return true;
         }
     }
 
-    boolean fallTest(Field field, Field.Type creatueType)
+    boolean fallTest(Field field, Field.Type creatureType)
     {
         testX = x;
         testY = y - 1;
@@ -61,26 +61,26 @@ public abstract class Creature {
                         oldBlockType != Field.Type.POLE
                 )
         {
-            testMovement(field, creatueType);
+            testMovement(field, creatureType);
             return true;
         }
         else
             return false;
     }
 
-    void updateBlocks(Field field, Field.Type creatueType)
+    void updateBlocks(Field field, Field.Type creatureType)
     {
         field.setBlock(oldBlockType, oldX, oldY);
         oldBlockType = field.getBlock(x, y);
         if (oldBlockType == Field.Type.GOLD &&
-                creatueType == Field.Type.PLAYER)
+                creatureType == Field.Type.PLAYER)
         {
             oldBlockType = Field.Type.EMPTY;
             field.goldRemain--;
         }
         oldX = x;
         oldY = y;
-        field.setBlock(creatueType, x, y);
+        field.setBlock(creatureType, x, y);
     }
 
     boolean jumpTest(Field field)

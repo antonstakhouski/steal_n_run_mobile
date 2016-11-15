@@ -34,40 +34,44 @@ public class Enemy extends Creature {
         //go to player quickly
         if (Math.abs(player.getX() - getX()) <
                 Math.abs(player.getY() - getY())) {
-            if (player.getX() - getX() >= 0)
+            if (player.getX() - getX() >= 0){
                 setTestX(getTestX() + 1);
-            else
+            }
+            else {
                 setTestX(getTestX() - 1);
-
-            if (playerCatched(field))
+            }
+            if (playerCatched(field)) {
                 return false;
+            }
 
             //check testMove at first
             if (!testMovement(field, Field.Type.ENEMY)) {
                 setTestX(getX());
                 if (player.getY() - getY() >= 0) {
                     setTestY(getTestY() + 1);
-                } else {
-                    setTestY(getTestY() - 1);
                     if (jumpTest(field))
                         return true;
+                } else {
+                    setTestY(getTestY() - 1);
                 }
 
-                if (playerCatched(field))
+                if (playerCatched(field)) {
                     return false;
+                }
 
                 testMovement(field, Field.Type.ENEMY);
             }
-            return true;
+            else{
+                return true;
+            }
         } else {
-            if (player.getY() - getY() >= 0) {
-                setTestY(getTestY() + 1);
-            } else {
+            if (!(player.getY() - getY() >= 0)) {
                 setTestY(getTestY() - 1);
-                if (playerCatched(field))
-                    return false;
-                //if (jumpTest(field))
-                  //  goto IFHIGH;
+            } else {
+                setTestY(getTestY() + 1);
+                if (jumpTest(field)){
+                    return !ySecondTest(field, player);
+                }
             }
 
             if (playerCatched(field))
@@ -75,20 +79,25 @@ public class Enemy extends Creature {
 
             //check testMove at first
             if (!testMovement(field, Field.Type.ENEMY)) {
-                //IFHIGH:
-                setTestY(getY());
-                if (player.getX() - getX() >= 0)
-                    setTestX(getTestX() + 1);
-                else
-                    setTestX(getTestX() - 1);
+                if (ySecondTest(field, player)) return false;
 
-                if (playerCatched(field))
-                    return false;
-
-                testMovement(field, Field.Type.ENEMY);
             }
             return true;
         }
+        return true;
     }
 
+    private boolean ySecondTest(Field field, Player player) {
+        setTestY(getY());
+        if (player.getX() - getX() >= 0)
+            setTestX(getTestX() + 1);
+        else
+            setTestX(getTestX() - 1);
+
+        if (playerCatched(field))
+            return true;
+
+        testMovement(field, Field.Type.ENEMY);
+        return false;
+    }
 }

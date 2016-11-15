@@ -1,6 +1,7 @@
 package com.stakhouski.anton.stealandrun;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 
 /**
  * Created by archer on 09.11.16.
@@ -35,6 +36,7 @@ public class Field {
     //blocks coordinates
     //for textures
     Type[][] m_ = new Type[HEIGHT][WIDTH];
+    ArrayList<int[]> enemiesCoords;
 
     private float[] ladderColor = {0.0f, 1.0f, 0.0f, 1.0f};
     private float[] concreteColor = {0.255f, 0.128f, 0.0f, 1.0f};
@@ -45,6 +47,8 @@ public class Field {
     private float[] enemyColor = {0.1f, 0.3f, 0.4f, 1.0f};
 
     Field(){
+        enemiesCoords = new ArrayList<>();
+        //enemiesCoords.clear();
         char[] charArrayMap = levelMap.toCharArray();
         char c;
         for (int y = 0; y < HEIGHT; ++y){
@@ -83,12 +87,15 @@ public class Field {
                         continue;
                     case '4':
                         m_[y][x] = Type.ENEMY;
+                        enemiesCoords.add(new int[]{x, y});
                         continue;
                     default:
                 }
             }
         }
     }
+    
+    public ArrayList<int[]> getEnemiesCoords(){return enemiesCoords;}
 
     void setBlock(Type type, int x, int y) {m_[y][x] = type;}
 
