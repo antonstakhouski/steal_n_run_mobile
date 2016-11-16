@@ -55,14 +55,44 @@ class Painter {
         drawListBuffer.position(0);
 
         // prepare shaders and OpenGL program
-        String vertexShaderCode = "uniform mat4 uMVPMatrix;" +
+/*        String vertexShaderCode = "uniform mat4 uMVPMatrix;" +
                 "attribute vec4 vPosition;" +
                 "void main() {" +
                 // The matrix must be included as a modifier of gl_Position.
                 // Note that the uMVPMatrix factor *must be first* in order
                 // for the matrix multiplication product to be correct.
                 "  gl_Position = uMVPMatrix * vPosition;" +
+                "}";*/
+        String vertexShaderCode = "uniform mat4 u_MVPMatrix;" +
+                "// A constant representing the combined model/view/projection matrix." +
+                "uniform mat4 u_MVMatrix;" +
+                "// A constant representing the combined model/view matrix." +
+                "attribute vec4 a_Position;" +
+                "// Per-vertex position information we will pass in." +
+                "attribute vec4 a_Color;  " +
+                "// Per-vertex color information we will pass in." +
+                "attribute vec3 a_Normal; " +
+                "// Per-vertex normal information we will pass in." +
+                "varying vec3 v_Position;" +
+                "// This will be passed into the fragment shader." +
+                "varying vec4 v_Color;" +
+                "// This will be passed into the fragment shader." +
+                "varying vec3 v_Normal;" +
+                " // This will be passed into the fragment shader." +
+                "// The entry point for our vertex shader." +
+                "void main(){" +
+                "   // Transform the vertex into eye space." +
+                "   v_Position = vec3(u_MVMatrix * a_Position);" +
+                "   // Pass through the color." +
+                "   v_Color = a_Color;" +
+                "   // Transform the normal's orientation into eye space." +
+                "   v_Normal = vec3(u_MVMatrix * vec4(a_Normal, 0.0));" +
+                "   // gl_Position is a special variable used to store the final position." +
+                "   // Multiply the vertex by the matrix to get " +
+                "   //the final point in normalized screen coordinates." +
+                "   gl_Position = u_MVPMatrix * a_Position;" +
                 "}";
+
         int vertexShader = MyGLRenderer.loadShader(
                 GLES31.GL_VERTEX_SHADER,
                 vertexShaderCode);
@@ -71,6 +101,7 @@ class Painter {
                 "void main() {" +
                 "  gl_FragColor = vColor;" +
                 "}";
+
         int fragmentShader = MyGLRenderer.loadShader(
                 GLES31.GL_FRAGMENT_SHADER,
                 fragmentShaderCode);
