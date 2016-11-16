@@ -1,3 +1,15 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2016 Anton Stakhouski
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+ * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package com.stakhouski.anton.stealandrun;
 
 import java.util.ArrayList;
@@ -6,10 +18,10 @@ import java.util.ArrayList;
  * Created by archer on 11.11.16.
  */
 
-public class Player extends Creature {
-    enum Action { LEFT, UP, RIGHT, DOWN, DIGLEFT, DIGRIGHT};
+class Player extends Creature {
+    enum Action {LEFT, UP, RIGHT, DOWN, DIGLEFT, DIGRIGHT}
+
     private final int trapNum = 3;
-    private final int  trapUpdate = 20;
     private Trap[] traps;
     private Action action_;
 
@@ -28,30 +40,32 @@ public class Player extends Creature {
         setOldBlockType(Field.Type.EMPTY);
     }
 
-    void keyEvent(Action d)
-    {
+    void keyEvent(Action d) {
         action_ = d;
         setUpdateFlag(true);
     }
 
-    private void setTrap(Field field)
-    {
+    private void setTrap(Field field) {
         int trapIterator;
         setTestY(getY() - 1);
         if (getTestY() < 0 || getTestY() >= Field.HEIGHT
-            || getTestX() < 0 || getTestX() >= Field.WIDTH)
+                || getTestX() < 0 || getTestX() >= Field.WIDTH) {
             return;
+        }
         if (field.getBlock(getTestX(), getTestY()) == Field.Type.BRICK &&
                 field.getBlock(getTestX(), getTestY() + 1) != Field.Type.LADDER) {
             //find free traps
             for (trapIterator = 0; trapIterator < trapNum; trapIterator++) {
-                if (traps[trapIterator].getTimeRemain() == -1)
+                if (traps[trapIterator].getTimeRemain() == -1) {
                     break;
+                }
             }
             //if all traps are busy
-            if (trapIterator == trapNum)
+            if (trapIterator == trapNum) {
                 return;
+            }
             //set traps
+            int trapUpdate = 20;
             traps[trapIterator].setTimeRemain(trapUpdate);
             traps[trapIterator].setX(getTestX());
             traps[trapIterator].setY(getTestY());
@@ -59,26 +73,27 @@ public class Player extends Creature {
         }
     }
 
-    boolean checkTraps(Field field, ArrayList<Enemy> enemies)
-    {
+    private boolean checkTraps(Field field, ArrayList<Enemy> enemies) {
         //close traps
         int trapIterator;
-        for (trapIterator = 0; trapIterator < trapNum; trapIterator++){
+        for (trapIterator = 0; trapIterator < trapNum; trapIterator++) {
             //reduce remainTime
             int timeRemain = traps[trapIterator].getTimeRemain();
-            if (timeRemain >= 0)
+            if (timeRemain >= 0) {
                 traps[trapIterator].setTimeRemain(timeRemain - 1);
+            }
 
-            if (timeRemain == 0){
+            if (timeRemain == 0) {
                 //if is goin to close
                 //player is in a traps
                 if (getX() == traps[trapIterator].getX() &&
-                        getY() == traps[trapIterator].getY())
+                        getY() == traps[trapIterator].getY()) {
                     return false;
+                }
                 //if trap is empty
                 for (Enemy enemy : enemies) {
                     if (traps[trapIterator].getX() == enemy.getX() &&
-                            traps[trapIterator].getY() == enemy.getY()){
+                            traps[trapIterator].getY() == enemy.getY()) {
                         enemy.setUpdateFlag(false);
                         enemy.setY(enemy.getY() + 1);
                         enemy.setOldX(enemy.getX());
@@ -93,28 +108,27 @@ public class Player extends Creature {
         return true;
     }
 
-    boolean tick(Field field, ArrayList<Enemy> enemies)
-    {
-        if (!checkTraps(field, enemies))
+    boolean tick(Field field, ArrayList<Enemy> enemies) {
+        if (!checkTraps(field, enemies)) {
             return false;
+        }
 
         //jump to the next level
-        if(field.goldRemain == 0 &&
+        if (field.goldRemain == 0 &&
                 getOldBlockType() == Field.Type.LADDER
                 && getY() == (Field.HEIGHT - 1)
-                )
-        {
+                ) {
             Field.level++;
             return false;
         }
 
-        if (fallTest(field, Field.Type.PLAYER))
+        if (fallTest(field, Field.Type.PLAYER)) {
             return true;
+        }
 
-        if (getUpdateFlag()){
+        if (getUpdateFlag()) {
             setUpdateFlag(false);
-            switch (action_)
-            {
+            switch (action_) {
                 case DIGLEFT:
                     setTestX(getX() + 1);
                     setTrap(field);

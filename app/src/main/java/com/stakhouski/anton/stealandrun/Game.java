@@ -1,13 +1,24 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2016 Anton Stakhouski
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+ * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package com.stakhouski.anton.stealandrun;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by archer on 12.11.16.
  */
 
-public class Game {
+class Game {
     private Painter painter;
     private Field field;
     private Player player;
@@ -22,7 +33,6 @@ public class Game {
             enemies.add(new Enemy(coords[0], coords[1]));
 
         }
-        //enemies.add(new Enemy(x, y));
     }
 
     void draw(float[] mvpMatrix) {
@@ -40,7 +50,7 @@ public class Game {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if(!enemy.tick(field, player)){
+            if (!enemy.tick(field, player)) {
                 restartGame();
                 return;
             }
@@ -51,10 +61,12 @@ public class Game {
         if (field.goldRemain == 0) {
             for (int y = 0; y < Field.HEIGHT; ++y) {
                 for (int x = 0; x < Field.WIDTH; ++x) {
-                    if (field.getBlock(x, y) == Field.Type.LADDER2)
+                    if (field.getBlock(x, y) == Field.Type.LADDER2){
                         field.setBlock(Field.Type.LADDER, x, y);
-                    if (field.getBlock(x, y) == Field.Type.BRICK2)
+                    }
+                    if (field.getBlock(x, y) == Field.Type.BRICK2) {
                         field.setBlock(Field.Type.BRICK, x, y);
+                    }
                 }
             }
         }
@@ -64,13 +76,12 @@ public class Game {
         }
     }
 
-    void restartGame(){
+    private void restartGame() {
         enemies.clear();
         field = new Field();
         for (int[] coords : field.getEnemiesCoords()) {
             enemies.add(new Enemy(coords[0], coords[1]));
         }
-        //player.deleteTraps();
         player = new Player();
     }
 }

@@ -12,23 +12,9 @@
 
 package com.stakhouski.anton.stealandrun;
 
-import android.content.Context;
-import android.opengl.GLSurfaceView;
-
 /**
- * Created by archer on 15.10.16.
+ * Created by archer on 15.11.16.
  */
 
-public class MyGLSurfaceView extends GLSurfaceView {
-
-    public MyGLSurfaceView(Context context) {
-        super(context);
-
-        // Create an OpenGL ES 3.0 context
-        setEGLContextClientVersion(3);
-
-        // Render the view only when there is a change in the drawing data
-        //setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
-    }
-
+public class TextureLoader {
 }

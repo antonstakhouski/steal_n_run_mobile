@@ -4,7 +4,7 @@ package com.stakhouski.anton.stealandrun;
  * Created by archer on 11.11.16.
  */
 
-public abstract class Creature {
+abstract class Creature {
 
     //private section
     private int x;
@@ -14,27 +14,24 @@ public abstract class Creature {
     private int oldY;
     private int testX;
     private int testY;
-    Field.Type oldBlockType;
-    Field.Type testBlockType;
+    private Field.Type oldBlockType;
+    private Field.Type testBlockType;
 
     //public:
-    boolean testMovement(Field field, Field.Type creatureType)
-    {
+    boolean testMovement(Field field, Field.Type creatureType) {
         if (
                 testX >= Field.WIDTH || testX < 0 ||
-                        testY >= Field.HEIGHT || testY < 0)
+                        testY >= Field.HEIGHT || testY < 0) {
             return false;
+        }
 
         testBlockType = field.getBlock(testX, testY);
         if (
                 testBlockType == Field.Type.BRICK ||
                         testBlockType == Field.Type.CONCRETE ||
-                        testBlockType == Field.Type.ENEMY)
-        {
+                        testBlockType == Field.Type.ENEMY) {
             return false;
-        }
-        else
-        {
+        } else {
             x = testX;
             y = testY;
             updateBlocks(field, creatureType);
@@ -42,14 +39,14 @@ public abstract class Creature {
         }
     }
 
-    boolean fallTest(Field field, Field.Type creatureType)
-    {
+    boolean fallTest(Field field, Field.Type creatureType) {
         testX = x;
         testY = y - 1;
         if (
                 testX >= Field.WIDTH || testX < 0 ||
-                        testY >= Field.HEIGHT || testY < 0)
+                        testY >= Field.HEIGHT || testY < 0) {
             return false;
+        }
         testBlockType = field.getBlock(testX, testY);
         if (
                 (
@@ -59,22 +56,18 @@ public abstract class Creature {
                                 testBlockType == Field.Type.POLE ||
                                 testBlockType == Field.Type.GOLD) &&
                         oldBlockType != Field.Type.POLE
-                )
-        {
+                ) {
             testMovement(field, creatureType);
             return true;
-        }
-        else
+        } else
             return false;
     }
 
-    void updateBlocks(Field field, Field.Type creatureType)
-    {
+    private void updateBlocks(Field field, Field.Type creatureType) {
         field.setBlock(oldBlockType, oldX, oldY);
         oldBlockType = field.getBlock(x, y);
         if (oldBlockType == Field.Type.GOLD &&
-                creatureType == Field.Type.PLAYER)
-        {
+                creatureType == Field.Type.PLAYER) {
             oldBlockType = Field.Type.EMPTY;
             field.goldRemain--;
         }
@@ -83,11 +76,10 @@ public abstract class Creature {
         field.setBlock(creatureType, x, y);
     }
 
-    boolean jumpTest(Field field)
-    {
+    boolean jumpTest(Field field) {
         //"fly" and "jump" fix
         testBlockType = field.getBlock(testX, testY);
-        return  ((
+        return ((
                 oldBlockType != Field.Type.LADDER && testBlockType == Field.Type.EMPTY) ||
                 (
                         oldBlockType == Field.Type.LADDER2 && testBlockType == Field.Type.LADDER2
@@ -96,97 +88,70 @@ public abstract class Creature {
 
 //------------------getters------------
 
-    int getX()
-    {
+    int getX() {
         return x;
     }
 
-    int getY()
-    {
+    int getY() {
         return y;
     }
 
-    int getOldX()
-    {
-        return oldX;
-    }
-
-    int getOldY()
-    {
-        return oldY;
-    }
-
-    boolean getUpdateFlag()
-    {
+    boolean getUpdateFlag() {
         return updateFlag;
     }
 
-    int getTestX()
-    {
+    int getTestX() {
         return testX;
     }
 
-    int getTestY()
-    {
+    int getTestY() {
         return testY;
     }
 
-    Field.Type getOldBlockType()
-    {
+    Field.Type getOldBlockType() {
         return oldBlockType;
     }
 
-    Field.Type getTestBlockType()
-    {
+    Field.Type getTestBlockType() {
         return testBlockType;
     }
 
 
-
 //------------------setters------------
 
-    void setX(int value)
-    {
+    void setX(int value) {
         x = value;
     }
 
-    void setY(int value)
-    {
+    void setY(int value) {
         y = value;
     }
 
-    void setOldX(int value)
-    {
+    void setOldX(int value) {
         oldX = value;
     }
 
-    void setOldY(int value)
-    {
+    void setOldY(int value) {
         oldY = value;
     }
 
-    void setUpdateFlag(boolean value)
-    {
+    void setUpdateFlag(boolean value) {
         updateFlag = value;
     }
 
-    void setTestX(int value)
-    {
+    void setTestX(int value) {
         testX = value;
     }
 
-    void setTestY(int value)
-    {
+    void setTestY(int value) {
         testY = value;
     }
 
-    void setOldBlockType(Field.Type value)
-    {
+    void setOldBlockType(Field.Type value) {
         oldBlockType = value;
     }
 
-    void setTestBlockType(Field.Type value)
-    {
+    void setTestBlockType(Field.Type value) {
         testBlockType = value;
     }
 }

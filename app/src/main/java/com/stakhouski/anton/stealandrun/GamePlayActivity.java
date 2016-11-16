@@ -1,3 +1,15 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2016 Anton Stakhouski
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+ * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package com.stakhouski.anton.stealandrun;
 
 import android.content.pm.ActivityInfo;
@@ -10,9 +22,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+
 import com.zerokol.views.JoystickView;
 import com.zerokol.views.JoystickView.OnJoystickMoveListener;
-
 
 public class GamePlayActivity extends AppCompatActivity {
 
@@ -35,12 +47,12 @@ public class GamePlayActivity extends AppCompatActivity {
         mGLView.setRenderer(mRenderer);
         JoystickView joystick;
 
-        joystick = (JoystickView)findViewById(R.id.joystickView);
+        joystick = (JoystickView) findViewById(R.id.joystickView);
 
         joystick.setOnJoystickMoveListener(new OnJoystickMoveListener() {
             @Override
             public void onValueChanged(int angle, int power, int direction) {
-                switch (direction){
+                switch (direction) {
                     case JoystickView.LEFT:
                         mRenderer.setPlayerKeyEvent(Player.Action.LEFT);
                         break;
@@ -77,8 +89,8 @@ public class GamePlayActivity extends AppCompatActivity {
             }
         }, JoystickView.DEFAULT_LOOP_INTERVAL);
 
-        Button digLeftBtn = (Button)findViewById(R.id.digLeftBtn);
-        Button digRightBtn = (Button)findViewById(R.id.digRightBtn);
+        Button digLeftBtn = (Button) findViewById(R.id.digLeftBtn);
+        Button digRightBtn = (Button) findViewById(R.id.digRightBtn);
 
         digLeftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,16 +106,11 @@ public class GamePlayActivity extends AppCompatActivity {
             }
         });
 
-        FrameLayout frame = (FrameLayout)findViewById(R.id.activity_game_play);
+        FrameLayout frame = (FrameLayout) findViewById(R.id.activity_game_play);
         setContentView(mGLView);
         addContentView(frame, new
                 ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
     }
-
-    public void Pause(View view){
-        System.exit(0);
-    }
-
 
 }
