@@ -12,6 +12,7 @@
 
 package com.stakhouski.anton.stealandrun;
 
+import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
@@ -45,8 +46,9 @@ public class Field {
 
     Field() {
         enemiesCoords = new ArrayList<>();
-        //enemiesCoords.clear();
-        String levelMap = "EEEEEEEEEEEEEEEEE1EEEEEEEE" +
+
+        String levelMap =
+                "EEEEEEEEEEEEEEEEE1EEEEEEEE" +
                 "EEEEGEEEEEEEEEEEE1EEEEEEEE" +
                 "BBBBBBLBBBBBBBEEE1EEEEEEEE" +
                 "EEEEEEL33333333331EEEEGEEE" +

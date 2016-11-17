@@ -27,6 +27,11 @@ class Enemy extends Creature {
     }
 
     private boolean playerCatched(Field field) {
+        if (
+                getTestX() >= Field.WIDTH || getTestX() < 0 ||
+                        getTestY() >= Field.HEIGHT || getTestY() < 0) {
+            return false;
+        }
         setTestBlockType(field.getBlock(getTestX(), getTestY()));
         return (getTestBlockType() == Field.Type.PLAYER);
     }
@@ -104,8 +109,7 @@ class Enemy extends Creature {
         setTestY(getY());
         if (player.getX() - getX() >= 0) {
             setTestX(getTestX() + 1);
-        }
-        else {
+        } else {
             setTestX(getTestX() - 1);
         }
         if (playerCatched(field)) {

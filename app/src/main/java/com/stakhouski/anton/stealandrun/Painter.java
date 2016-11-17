@@ -55,15 +55,15 @@ class Painter {
         drawListBuffer.position(0);
 
         // prepare shaders and OpenGL program
-/*        String vertexShaderCode = "uniform mat4 uMVPMatrix;" +
+        String vertexShaderCode = "uniform mat4 uMVPMatrix;" +
                 "attribute vec4 vPosition;" +
                 "void main() {" +
                 // The matrix must be included as a modifier of gl_Position.
                 // Note that the uMVPMatrix factor *must be first* in order
                 // for the matrix multiplication product to be correct.
                 "  gl_Position = uMVPMatrix * vPosition;" +
-                "}";*/
-        String vertexShaderCode = "uniform mat4 u_MVPMatrix;" +
+                "}";
+/*        String vertexShaderCode = "uniform mat4 u_MVPMatrix;" +
                 "// A constant representing the combined model/view/projection matrix." +
                 "uniform mat4 u_MVMatrix;" +
                 "// A constant representing the combined model/view matrix." +
@@ -91,7 +91,7 @@ class Painter {
                 "   // Multiply the vertex by the matrix to get " +
                 "   //the final point in normalized screen coordinates." +
                 "   gl_Position = u_MVPMatrix * a_Position;" +
-                "}";
+                "}";*/
 
         int vertexShader = MyGLRenderer.loadShader(
                 GLES31.GL_VERTEX_SHADER,
