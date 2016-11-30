@@ -18,11 +18,11 @@
         android:text="@string/new_game_btn"
         android:onClick="StartNewGame"/>
 
-    <Button
+<!--    <Button
         android:id="@+id/select_level_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/select_level_btn" />
+        android:text="@string/select_level_btn" />-->
 
     <Button
         android:id="@+id/exit_btn"
